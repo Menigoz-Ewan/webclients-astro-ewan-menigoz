@@ -1,0 +1,23 @@
+name: Déploiement automatique VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connexion SSH et Déploiement
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd /var/www/webclients-astro-ewan-menigoz
+            git pull origin main
+            bun install
+            bun run build
+            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S systemctl restart webclients.service
