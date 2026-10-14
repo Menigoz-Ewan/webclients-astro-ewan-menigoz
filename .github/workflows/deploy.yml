@@ -15,6 +15,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
+          port: 23015
           script: |
             cd /var/www/webclients-astro-ewan-menigoz
             git pull origin main
