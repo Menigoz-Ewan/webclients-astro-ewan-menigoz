@@ -1,0 +1,13 @@
+# Dépendances Node
+node_modules/
+
+# Dossiers de build Astro
+dist/
+.astro/
+
+# Variables d'environnement
+.env
+
+# Base de données SQLite (Spécifique à ton TP)
+data/clients.db
+*.db
