@@ -18,6 +18,6 @@ jobs:
           script: |
             cd /var/www/webclients-astro-ewan-menigoz
             git pull origin main
-            bun install
-            bun run build
+            /home/etudiant/.bun/bin/bun install
+            /home/etudiant/.bun/bin/bun run build
             echo "${{ secrets.VPS_PASSWORD }}" | sudo -S systemctl restart webclients.service
